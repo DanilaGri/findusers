@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">FindUsers</string>
+    <string name="name">name</string>
+    <string name="height">height</string>
+    <string name="mass">mass</string>
+    <string name="hair_color">hair color</string>
+    <string name="skin_color">skin color</string>
+    <string name="eye_color">eye color</string>
+    <string name="birth_year">birth year</string>
+    <string name="gender">gender</string>
+    <string name="find_user">find user</string>
+    <string name="search_user">Search personage</string>
+    <string name="personage_detail">Personage detail</string>
+    <string name="viewed_characters">Viewed personages</string>
+    <string name="no_results">No results!</string>
+    <string name="search_personage">Search personage by name</string>
+    <string name="viewed_personages">Or show viewed personages</string>
+</resources>
