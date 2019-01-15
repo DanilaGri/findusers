@@ -19,12 +19,10 @@ public class SearchUserAdapter extends RecyclerView.Adapter<SearchUserAdapter.Vi
 
     private final OnListFragmentInteractionListener mListener;
     private List<User> mUserList;
-    private Context mContext;
 
-    public SearchUserAdapter(Context context, List<User> items, OnListFragmentInteractionListener listener) {
+    public SearchUserAdapter(List<User> items, OnListFragmentInteractionListener listener) {
         mUserList = items;
         mListener = listener;
-        mContext = context;
     }
 
     public List<User> getUserList() {
@@ -47,7 +45,8 @@ public class SearchUserAdapter extends RecyclerView.Adapter<SearchUserAdapter.Vi
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
         User mUser = mUserList.get(position);
-        holder.iulName.setText(mUser.getName() == null ? mContext.getText(R.string.name) + ": -" : mContext.getText(R.string.name) + ": " + mUser.getName());
+        Context context = holder.iulName.getContext();
+        holder.iulName.setText(mUser.getName() == null ? context.getText(R.string.name) + ": -" : context.getText(R.string.name) + ": " + mUser.getName());
     }
 
     @Override

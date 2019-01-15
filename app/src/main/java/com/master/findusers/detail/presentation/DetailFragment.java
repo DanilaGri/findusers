@@ -72,7 +72,7 @@ public class DetailFragment extends BaseFragment implements DetailView {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = getView() != null ? getView() : inflater.inflate(R.layout.fragment_detail, container, false);
+        View view = inflater.inflate(R.layout.fragment_detail, container, false);
         unbinder = ButterKnife.bind(this, view);
         initToolBar(mToolBar, getString(R.string.personage_detail), true);
         mDetailPresenter.getUserByName();

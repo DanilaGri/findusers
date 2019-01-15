@@ -74,12 +74,12 @@ public class SearchUserFragment extends BaseFragment implements SearchUserView {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = getView() != null ? getView() : inflater.inflate(R.layout.fragment_user_list, container, false);
+        View view = inflater.inflate(R.layout.fragment_user_list, container, false);
         unbinder = ButterKnife.bind(this, view);
         setupSearch();
         initToolBar(mToolBar, getString(R.string.search_user), false);
         mList.setLayoutManager(new LinearLayoutManager(getActivity()));
-        mAdapter = new SearchUserAdapter(getActivity(), new ArrayList<>(), position -> {
+        mAdapter = new SearchUserAdapter(new ArrayList<>(), position -> {
             User user = mAdapter.getUserList().get(position);
             mPresenter.saveUser(user);
         });
@@ -180,19 +180,11 @@ public class SearchUserFragment extends BaseFragment implements SearchUserView {
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-        _onAttach(context);
-    }
-
-    private void _onAttach(Context context) {
-
-        Activity activity;
-
-        if (context instanceof Activity) {
-            activity = (Activity) context;
+        if (context instanceof OnUserClickListener) {
             try {
-                mOnUserClickListener = (OnUserClickListener) activity;
+                mOnUserClickListener = (OnUserClickListener) context;
             } catch (ClassCastException e) {
-                throw new ClassCastException(activity.toString() + " must implement OnUserClickListener");
+                throw new ClassCastException(context.toString() + " must implement OnUserClickListener");
             }
         }
     }

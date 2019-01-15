@@ -65,7 +65,7 @@ public class RecentUsersFragment extends BaseFragment implements RecentUsersView
         unbinder = ButterKnife.bind(this, view);
         initToolBar(mToolBar, getString(R.string.viewed_characters), true);
         recentList.setLayoutManager(new LinearLayoutManager(getActivity()));
-        mAdapter = new SearchUserAdapter(getActivity(), new ArrayList<>(), position -> {
+        mAdapter = new SearchUserAdapter( new ArrayList<>(), position -> {
             User user = mAdapter.getUserList().get(position);
             mOnUserClickListener.onUserClick(user.getName());
         });
